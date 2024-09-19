@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Firebase Push Notification Tester</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Firebase Push Notification Tester</h1>
+        
+        <div id="firebaseSetup">
+            <h2>Firebase Setup</h2>
+            <input type="file" id="firebaseKeyFile" accept=".json">
+            <button id="uploadKeyButton">Upload Firebase Key</button>
+            <div id="keyStatus"></div>
+        </div>
+        
+        <label for="fcmToken">FCM Token:</label>
+        <input type="text" id="fcmToken" placeholder="Enter FCM Token">
+        
+        <label for="templateSelector">Notification Template:</label>
+        <select id="templateSelector">
+            <option value="custom">Custom</option>
+            <option value="newMessage">New Message</option>
+            <option value="reminder">Reminder</option>
+            <option value="appUpdate">App Update</option>
+        </select>
+        
+        <label for="notificationData">Notification Data (JSON):</label>
+        <textarea id="notificationData" placeholder="Enter notification data in JSON format"></textarea>
+        
+        <div class="button-group">
+            <button id="lintButton">Lint JSON</button>
+            <button id="sendButton" disabled>Send Notification</button>
+        </div>
+        
+        <div class="loader"></div>
+        
+        <div id="result"></div>
+    </div>
+
+    <div id="historyContainer">
+        <h2>Notification History</h2>
+        <div id="historyList"></div>
+    </div>
+
+    <div id="toast" class="toast"></div>
+
+    <script type="module" src="js/app.js"></script>
+</body>
+</html>

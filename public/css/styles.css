@@ -1,0 +1,261 @@
+/* Variables */
+:root {
+    --primary-color: #024D48;
+    --secondary-color: #FF61BE;
+    --background-color: #E7ECEC;
+    --accent-color: #B3FF00;
+    --text-color: #333;
+    --error-color: #FF3B30;
+    --success-color: #34C759;
+}
+
+/* Global Styles */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--background-color);
+    margin: 0;
+    padding: 20px;
+}
+
+/* Layout */
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Typography */
+h1 {
+    color: var(--primary-color);
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+label {
+    display: block;
+    margin-top: 20px;
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+/* Form Elements */
+input, textarea {
+    width: 100%;
+    padding: 12px;
+    margin-top: 5px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+}
+
+input:focus, textarea:focus {
+    outline: none;
+    border-color: var(--secondary-color);
+    box-shadow: 0 0 0 2px rgba(255, 97, 190, 0.2);
+}
+
+textarea {
+    min-height: 200px;
+    resize: vertical;
+}
+
+/* Buttons */
+.button-group {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+button {
+    padding: 12px 24px;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: all 0.3s ease;
+}
+
+button:disabled {
+    background-color: #cccccc;
+    color: #666666;
+    cursor: not-allowed;
+}
+
+#lintButton {
+    background-color: var(--secondary-color);
+}
+
+#lintButton:hover:not(:disabled) {
+    background-color: #ff4db2;
+}
+
+#sendButton {
+    background-color: var(--primary-color);
+}
+
+#sendButton:hover:not(:disabled) {
+    background-color: #013330;
+}
+
+#sendButton:disabled {
+    background-color: #e6e6e6;
+}
+
+#uploadKeyButton {
+    background-color: var(--accent-color);
+    color: var(--text-color);
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+#uploadKeyButton:hover:not(:disabled) {
+    background-color: #a3e600;
+}
+
+#uploadKeyButton:disabled {
+    background-color: #e6e6e6;
+}
+
+/* Firebase Setup */
+#firebaseSetup {
+    margin-bottom: 20px;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background-color: #f9f9f9;
+}
+
+#keyStatus {
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+#keyStatus.success {
+    color: var(--success-color);
+}
+
+#keyStatus.error {
+    color: var(--error-color);
+}
+
+/* Result Display */
+#result {
+    margin-top: 20px;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background-color: #f9f9f9;
+    white-space: pre-wrap;
+}
+
+.error {
+    color: var(--error-color);
+    font-weight: bold;
+}
+
+.success {
+    color: var(--success-color);
+    font-weight: bold;
+}
+
+/* Loading Animation */
+.loader {
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid var(--primary-color);
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    animation: spin 1s linear infinite;
+    display: none;
+    margin: 20px auto;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Toast Notifications */
+.toast {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 10px 20px;
+    border-radius: 4px;
+    color: white;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.toast.show {
+    opacity: 1;
+}
+
+.toast.success {
+    background-color: var(--success-color);
+}
+
+.toast.error {
+    background-color: var(--error-color);
+}
+
+/* Template Selector */
+#templateSelector {
+    margin-top: 20px;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background-color: white;
+}
+
+/* History Container */
+#historyContainer {
+    margin-top: 30px;
+    border-top: 2px solid var(--primary-color);
+    padding-top: 20px;
+}
+
+#historyContainer h2 {
+    color: var(--primary-color);
+}
+
+.historyItem {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.historyItem.success {
+    border-left: 5px solid var(--success-color);
+}
+
+.historyItem.error {
+    border-left: 5px solid var(--error-color);
+}
+
+.historyItem details {
+    margin-top: 10px;
+}
+
+.historyItem summary {
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.historyItem pre {
+    background-color: #f1f1f1;
+    padding: 10px;
+    border-radius: 4px;
+    overflow-x: auto;
+}
