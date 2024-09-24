@@ -59,18 +59,17 @@ app.post('/send-notification', async (req, res) => {
     // Convert iOS specific payload to FCM format
     const message = {
       token: fcmToken,
-      notification: {
-        title: iosPayload.aps.alert.title,
-        body: iosPayload.aps.alert.body
-      },
-      apns: {
-        payload: {
-          aps: iosPayload.aps
-        }
-      },
-      data: iosPayload.custom_data
+      notification: iosPayload.aps?.alert ? {
+        title: iosPayload.aps.alert.title || '',
+        body: iosPayload.aps.alert.body || ''
+      } : undefined,
+      apns: iosPayload.aps ? { payload: { aps: iosPayload.aps } } : undefined,
+      data: iosPayload.custom_data || undefined,
     };
 
+    console.log('Sending notification:', message);
+
+    // Send notification
     const response = await admin.messaging().send(message);
     res.json({ success: true, response });
   } catch (error) {

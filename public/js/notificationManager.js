@@ -45,6 +45,14 @@ export class NotificationManager {
                 custom_data: {
                     version: "2.0.1"
                 }
+            },
+            silent: {
+                aps: {
+                    "content-available": 1
+                },
+                custom_data: {
+                    silent_data: "true"
+                }
             }
         };
     }
