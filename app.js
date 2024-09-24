@@ -67,8 +67,6 @@ app.post('/send-notification', async (req, res) => {
       data: iosPayload.custom_data || undefined,
     };
 
-    console.log('Sending notification:', message);
-
     // Send notification
     const response = await admin.messaging().send(message);
     res.json({ success: true, response });
