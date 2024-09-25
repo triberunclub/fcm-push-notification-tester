@@ -1,0 +1,44 @@
+<div id="notificationBuilder" class="notification-builder-content">
+  <h3>Notification Payload Builder</h3>
+  <div class="form-group">
+    <label for="notificationTitle">Title:</label>
+    <input type="text" id="notificationTitle" placeholder="Notification Title">
+  </div>
+  <div class="form-group">
+    <label for="notificationBody">Body:</label>
+    <input type="text" id="notificationBody" placeholder="Notification Body">
+  </div>
+  <div class="form-group">
+    <label for="notificationSound">Sound:</label>
+    <select id="notificationSound">
+      <option value="default">Default</option>
+      <option value="custom">Custom</option>
+      <option value="none">None</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="notificationBadge">Badge (iOS):</label>
+    <input type="number" id="notificationBadge" min="0" value="1">
+  </div>
+  <div class="form-group">
+    <label for="notificationIcon">Icon (Android):</label>
+    <input type="text" id="notificationIcon" placeholder="Icon resource name">
+  </div>
+  <div class="form-group">
+    <label for="notificationColor">Color (Android):</label>
+    <input type="color" id="notificationColor" value="#000000">
+  </div>
+  <div class="form-group">
+    <label>
+      <input type="checkbox" id="notificationContentAvailable">
+      Content Available (iOS)
+    </label>
+  </div>
+  <div class="form-group">
+    <label>Custom Data:</label>
+    <div id="customDataFields"></div>
+    <button id="addCustomDataField">Add Custom Data Field</button>
+  </div>
+  <button id="buildPayload">Build Payload</button>
+  <button id="resetBuilder">Reset Payload</button>
+</div>

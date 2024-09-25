@@ -6,12 +6,13 @@ export class HistoryManager {
         this.maxHistoryItems = 10; // Limit the number of history items
     }
 
-    addToHistory(result, fcmToken, notificationData) {
+    addToHistory(result, fcmToken, notificationData, platform) {
         const historyItem = {
             timestamp: new Date().toLocaleString(),
             success: result.success,
             fcmToken: fcmToken,
             notificationData: notificationData,
+            platform: platform,
             response: result.response || result.error
         };
 
@@ -31,6 +32,7 @@ export class HistoryManager {
             historyItemElement.innerHTML = `
                 <p><strong>Timestamp:</strong> ${item.timestamp}</p>
                 <p><strong>Status:</strong> ${item.success ? 'Success' : 'Failure'}</p>
+                <p><strong>Platform:</strong> ${item.platform}</p>
                 <p><strong>FCM Token:</strong> ${item.fcmToken}</p>
                 <details>
                     <summary>Notification Data</summary>

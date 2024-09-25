@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Firebase Push Notification Tester</title>
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Firebase Push Notification Tester</h1>
+        
+        <div id="firebaseSetup">
+            <h2>Firebase Setup</h2>
+            <input type="file" id="firebaseKeyFile" accept=".json">
+            <button id="uploadKeyButton">Upload Firebase Key</button>
+            <div id="keyStatus"></div>
+        </div>
+        
+        <label for="fcmToken">FCM Token:</label>
+        <input type="text" id="fcmToken" placeholder="Enter FCM Token">
+        
+        <div class="selector-group">
+            <div class="form-group">
+                <label for="platformSelect">Platform:</label>
+                <select id="platformSelect">
+                    <option value="ios">iOS</option>
+                    <option value="android">Android</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="templateSelector">Notification Template:</label>
+                <select id="templateSelector">
+                    <option value="default">Default</option>
+                    <option value="custom">Custom</option>
+                    <option value="newMessage">New Message</option>
+                    <option value="reminder">Reminder</option>
+                    <option value="appUpdate">App Update</option>
+                    <option value="silent">Silent Notification</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Modal -->
+        <button id="openBuilderModal" style="display: none;">Open Notification Builder</button>
+
+        <div id="builderModal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="notificationManager.closeModal()">&times;</span>
+                <div id="notificationBuilderContainer"></div>
+            </div>
+        </div>
+
+        <label for="notificationData">Notification Data (JSON):</label>
+        <textarea id="notificationData" placeholder="Enter notification data in JSON format"></textarea>
+        
+        <div class="button-group">
+            <button id="lintButton">Lint JSON</button>
+            <button id="sendButton" disabled>Send Notification</button>
+        </div>
+        
+        <div class="loader"></div>
+        
+        <div id="result"></div>
+    </div>
+
+    <div id="historyContainer">
+        <h2>Notification History</h2>
+        <div id="historyList"></div>
+    </div>
+
+    <div id="toast" class="toast"></div>
+
+    <script type="module" src="js/app.js"></script>
+
+<script>
+    // Add this script tag just before your closing </body> tag
+    document.addEventListener('DOMContentLoaded', () => {
+        console.log('DOM fully loaded');
+        const modal = document.getElementById('builderModal');
+        console.log('Modal in main HTML:', modal);
+        const container = document.getElementById('notificationBuilderContainer');
+        console.log('Builder container in main HTML:', container);
+    }); 
+</script>
+</body>
+</html>
