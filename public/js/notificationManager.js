@@ -151,6 +151,7 @@ export class NotificationManager {
         });
         this.openModalButton.addEventListener('click', () => this.openModal());
         this.closeModalButton.addEventListener('click', () => this.closeModal());
+        this.platformSelect.addEventListener('change', () => this.onPlatformChange());
         window.addEventListener('click', (event) => {
             if (event.target === this.modal) {
                 this.closeModal();
